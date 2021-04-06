@@ -35,3 +35,16 @@ Route::get('/update', function () {
 
     $address->save();
 });
+
+Route::get('/read', function () {
+    $user = User::findOrFail(1);
+    return $user->address->name;
+});
+
+Route::get('/delete', function () {
+    $user = User::findOrFail(1);
+
+    $user->address()->delete();
+
+    return "It Hath Been Done";
+});
