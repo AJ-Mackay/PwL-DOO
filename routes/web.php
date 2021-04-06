@@ -26,3 +26,12 @@ Route::get('/insert', function () {
 
     $user->address()->save($address);
 });
+
+Route::get('/update', function () {
+    // $address = Address::where('id', 1)->first();
+    $address = Address::whereId(1)->first();
+
+    $address->name = "42 Updated Ave, Alaska";
+
+    $address->save();
+});
